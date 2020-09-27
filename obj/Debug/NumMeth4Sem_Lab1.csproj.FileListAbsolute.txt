@@ -1,0 +1,7 @@
+D:\VsProj\NumMeth4Sem_Lab1\bin\Debug\NumMeth4Sem_Lab1.exe.config
+D:\VsProj\NumMeth4Sem_Lab1\bin\Debug\NumMeth4Sem_Lab1.exe
+D:\VsProj\NumMeth4Sem_Lab1\bin\Debug\NumMeth4Sem_Lab1.pdb
+D:\VsProj\NumMeth4Sem_Lab1\obj\Debug\NumMeth4Sem_Lab1.csprojAssemblyReference.cache
+D:\VsProj\NumMeth4Sem_Lab1\obj\Debug\NumMeth4Sem_Lab1.csproj.CoreCompileInputs.cache
+D:\VsProj\NumMeth4Sem_Lab1\obj\Debug\NumMeth4Sem_Lab1.exe
+D:\VsProj\NumMeth4Sem_Lab1\obj\Debug\NumMeth4Sem_Lab1.pdb

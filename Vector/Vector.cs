@@ -98,11 +98,17 @@ namespace Com_Methods
             for (int i = 0; i < N; i++) Elem[i] = V2.Elem[i];
         }
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         //норма вектора
         public double Norma()
         {
-            return 0;
+            double result = 0;
+            for (int i = 0; i < N; i++)
+            {
+                result += Math.Pow(Elem[i], 2);
+            }
+            result = Math.Sqrt(result);
+            return result;
         }
 
         //вывод вектора на консоль

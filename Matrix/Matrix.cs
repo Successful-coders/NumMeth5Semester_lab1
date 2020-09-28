@@ -75,8 +75,7 @@ namespace Com_Methods
             return RES;
         }
 
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //умножение транспонированной матрицы на вектор
+
         public Vector MultTransMatrixVector(Vector V)
         {
             if (N != V.N) throw new Exception("Mt * V: dim(Matrix) != dim(Vector)...");
@@ -178,7 +177,20 @@ namespace Com_Methods
                 Console.WriteLine();
             }
         }
+        //транспонирование матрицы
+        public Matrix Transpose_Matrix()
+        {
+            var RES = new Matrix(N, M);
 
-       
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < M; j++)
+                {
+                    RES.Elem[i][j] = Elem[j][i];
+                }
+            }
+            return RES;
+        }
+
     }
 }

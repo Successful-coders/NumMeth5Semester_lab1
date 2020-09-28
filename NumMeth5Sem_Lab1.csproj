@@ -47,7 +47,9 @@
     <Compile Include="CONST.cs" />
     <Compile Include="DirectSolver\SubstitutionMethods.cs" />
     <Compile Include="LUDecompositions.cs" />
+    <Compile Include="Matrix\LMatrix.cs" />
     <Compile Include="Matrix\Matrix.cs" />
+    <Compile Include="Matrix\UMatrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QRDecomposition.cs" />

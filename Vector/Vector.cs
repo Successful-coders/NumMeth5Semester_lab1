@@ -111,6 +111,12 @@ namespace Com_Methods
             return result;
         }
 
+        //копирование вектора-столбца матрицы с номером NUM
+        public void Copy_Column(Matrix T, int NUM)
+        {
+            if (N != T.M) throw new Exception("Copy: dim(vector) != dim(matrix)...");
+            for (int i = 0; i < N; i++) Elem[i] = T.Elem[i][NUM];
+        }
         //вывод вектора на консоль
         public void ConsoleWriteVector()
         {

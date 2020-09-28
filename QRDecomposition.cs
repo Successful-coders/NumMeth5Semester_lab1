@@ -8,14 +8,14 @@ namespace Com_Methods
 {
     class QRDecomposition
     {
-        public Upper_Triangular_Matrix R { set; get; }
-        public Lower_Triangular_Matrix Q { set; get; }
+        public UMatrix R { set; get; }
+        public LMatrix Q { set; get; }
 
         //классический метод QR-разложения
         public void classicDecompos(Matrix m)
         {
-            R = new Upper_Triangular_Matrix(m.N, m.N);
-            Q = new Lower_Triangular_Matrix(m.M, m.M);
+            R = new UMatrix(m.N, m.N);
+            Q = new LMatrix(m.M, m.M);
             var q = new Vector(m.M);
 
             for (var j = 0; j < m.N; j++)
@@ -47,8 +47,8 @@ namespace Com_Methods
         //модифицированный метод QR-разложения
         public void GSDecompose(Matrix m)
         {
-            R = new Upper_Triangular_Matrix(m.N, m.N);
-            Q = new Lower_Triangular_Matrix(m.M, m.M);
+            R = new UMatrix(m.N, m.N);
+            Q = new LMatrix(m.M, m.M);
             var q = new Vector(m.M);
 
             for (var j = 0; j < m.M; j++)
@@ -84,7 +84,7 @@ namespace Com_Methods
         public Vector solve(Matrix m, Vector v)
         {
             GSDecompose(m);
-            Q.Multiplication_Trans_Matrix_Vector(v);
+            Q.MultTransMatrixVector(v);
             R.Back_Row_Substitution(v);
 
             return v;

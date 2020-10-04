@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Com_Methods
 {
-    class QRDecomposition
+    class GramShmidt
     {
         public UMatrix R { set; get; }
         public LMatrix Q { set; get; }
 
         //классический метод QR-разложения
-        public void classicDecompos(Matrix m)
+        public  void ClassicDecomposition(Matrix m)
         {
             R = new UMatrix(m.N, m.N);
             Q = new LMatrix(m.M, m.M);
@@ -45,7 +45,7 @@ namespace Com_Methods
         }
 
         //модифицированный метод QR-разложения
-        public void GSDecompose(Matrix m)
+        public static void ModifyDecomposition(Matrix m)
         {
             R = new UMatrix(m.N, m.N);
             Q = new LMatrix(m.M, m.M);
@@ -79,16 +79,5 @@ namespace Com_Methods
                     Q.Elem[i][j] = q.Elem[i] / R.Elem[j][j];
             }
         }
-
-        //решение СЛАУ
-        public Vector solve(Matrix m, Vector v)
-        {
-            GSDecompose(m);
-            Q.MultTransMatrixVector(v);
-            R.Back_Row_Substitution(v);
-
-            return v;
-        }
-
     }
 }

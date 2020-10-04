@@ -77,7 +77,7 @@ namespace Com_Methods
         }
 
         //решение СЛАУ.
-        public Vector solve(Matrix m, Vector v)
+        public Vector Solve(Matrix m, Vector v)
         {
             Decompose(m);
             GetRightPart(m, v);

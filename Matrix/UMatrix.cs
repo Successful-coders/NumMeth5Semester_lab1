@@ -18,7 +18,6 @@ namespace Com_Methods
             Elem = new double[m][];
             for (int i = 0; i < m; i++) Elem[i] = new double[n];
         }
-
         //прямая подстановка по строкам
         public Vector Back_Row_Substitution(Vector X)
         {

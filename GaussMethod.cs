@@ -69,27 +69,14 @@ namespace Com_Methods
             }
 
         }
-        //// Преобразовываем правую часть СЛАУ в соответствии с коэффициентами
-        //// для умножения строк левой части.
-        //public Vector GetRightPart(Matrix A, Vector V)
-        //{
-        //    for (var i = 0; i < A.M; i++)
-        //    {
-        //        for (var j = 0; j < i; j++)
-        //            V.Elem[i] -= A.Elem[i][j] * V.Elem[j];
-        //    }
-        //    return V;
-        //}
-
 
         public Vector SolveMatrix (Matrix A, Vector V)
         {
             Vector result = new Vector(V.N);
 
             GaussDecomposition(A, V);
-            //GetRightPart(A, V);
 
-            result = SubstitutionMethods.BackRowSubstitution(A, V);
+            Substitution_Method.Back_Row_Substitution(A, V, result);
             return result;
         }
     }

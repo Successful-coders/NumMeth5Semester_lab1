@@ -10,7 +10,7 @@ namespace Com_Methods
     {
         //конструктор по умолчанию =
         public LMatrix() { }
-        //конструктор по размерам
+
         public LMatrix(int m, int n)
         {
             M = m;

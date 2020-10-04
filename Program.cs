@@ -16,19 +16,26 @@ namespace Com_Methods
             double[][] aElements = new double[][]
             {
                 new double[]{ 2, 1},
-                new double[]{ 0, 2 }
+                new double[]{ 1, 2 }
             };
             matrixA.Elem = aElements;
 
             double[] fElements = new double[]
             {
                 3,
-                2,
+                3,
             };
 
             f.Elem = fElements;
 
-            SubstitutionMethods.Back_Column_Substitution(matrixA, f).ConsoleWriteVector();
+            //LUDecompositions LU = new LUDecompositions();
+            //LU.Solve(matrixA, f).ConsoleWriteVector();
+
+            //GaussMethod solver = new GaussMethod();
+            //solver.SolveMatrix(matrixA, f).ConsoleWriteVector();
+
+            //QRDecomposition QR = new QRDecomposition();
+            //QR.solve(matrixA, f).ConsoleWriteVector();
         }
     }
 }

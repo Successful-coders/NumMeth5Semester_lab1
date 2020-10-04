@@ -12,7 +12,7 @@ namespace Com_Methods
         public LMatrix Q { set; get; }
 
         //классический метод QR-разложения
-        public  void ClassicDecomposition(Matrix m)
+        public void ClassicDecomposition(Matrix m)
         {
             R = new UMatrix(m.N, m.N);
             Q = new LMatrix(m.M, m.M);
@@ -45,7 +45,7 @@ namespace Com_Methods
         }
 
         //модифицированный метод QR-разложения
-        public static void ModifyDecomposition(Matrix m)
+        public void ModifyDecomposition(Matrix m)
         {
             R = new UMatrix(m.N, m.N);
             Q = new LMatrix(m.M, m.M);

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="DirectSolver\Substitution_Method.cs" />
     <Compile Include="Decomposition\GaussMethod.cs" />
     <Compile Include="CONST.cs" />

@@ -22,7 +22,11 @@ namespace Com_Methods
             var rand = new Random();
             for (int i = 0; i < A.M; i++)
             {
-                A.Elem[i][i] = 1.0;
+                for (int j = 0; j < A.N; j++)
+                {
+
+                A.Elem[i][j] = i==j ? 1.0 : 0;
+                }
                 F.Elem[i] = 1.0;
             }
             for (int i = 0; i < A.N; i++)
@@ -46,34 +50,34 @@ namespace Com_Methods
                 case Decomposition.Gauss:
                     {
                         GaussMethod solver = new GaussMethod();
-                        solver.SolveMatrix(A, F).ConsoleWriteVector();
+                        solver.SolveMatrix(A, F);
                         break;
                     }
                 case Decomposition.LU:
                     {
                         LUDecompositions LU = new LUDecompositions();
-                        LU.Solve(A, F).ConsoleWriteVector();
+                        LU.Solve(A, F);
                         break;
                     }
                 case Decomposition.ClassicGrammShmidth:
                     {
-                        GramShmidt.SolverGrammShmidth(A, F, 1).ConsoleWriteVector();
+                        GramShmidt.SolverGrammShmidth(A, F, 1);
                         break;
                     }
                 case Decomposition.ModifyGrammaShmidth:
                     {
-                        GramShmidt.SolverGrammShmidth(A, F, 2).ConsoleWriteVector();
+                        GramShmidt.SolverGrammShmidth(A, F, 2);
                         break;
                     }
                 case Decomposition.GivensRotatin:
                     {
 
-                        GivensRotation.GivensSolver(A, F).ConsoleWriteVector();
+                        GivensRotation.GivensSolver(A, F);
                         break;
                     }
                 case Decomposition.Hausholder:
                     {
-                        Hausholder.Householder_Reflection_Solver(A, F).ConsoleWriteVector();
+                        Hausholder.Householder_Reflection_Solver(A, F);
                         break;
                     }
             }
@@ -94,48 +98,25 @@ namespace Com_Methods
             error = help.Norma() / resX.Norma();
             return error;
         }
+
+
         public static void Main()
         {
-            int size = 3;
+            int size = 500;
             Matrix matrixA = new Matrix(size, size);
             Vector vectorF = new Vector(size);
-            //CreateNonsingularMatrix(matrixA, vectorF);
+            CreateNonsingularMatrix(matrixA, vectorF);
 
-            Vector f = new Vector(size);
-            Vector x = new Vector(size);
+            double time = 0;
 
-            double[][] aElements = new double[][]
+            for (int j = 0; j < 10; j++)
             {
-                new double[]{ -2, -2, -1 },
-                new double[]{ 1, 0, -2},
-                new double[]{ 0, 1, 2}
-            };
-            matrixA.Elem = aElements;
+                time += Time(Decomposition.ClassicGrammShmidth, matrixA, vectorF);
+            }
 
-            double[] fElements = new double[]
-            {
-                -5,
-                -1,
-                3,
-            };
-
-            f.Elem = fElements;
-            var resX = new Vector(size);
-            resX.Elem[0] = resX.Elem[1] = resX.Elem[2] = 1.0;
-            var X = new Vector(size);
-            X=GramShmidt.SolverGrammShmidth(matrixA, f, 1);
-            //X=GramShmidt.SolverGrammShmidth(matrixA, f, 2);
-            //X=Hausholder.Householder_Reflection_Solver(matrixA, f);
-            //X=GivensRotation.GivensSolver(matrixA, f);
-
-            //LUDecompositions LU = new LUDecompositions();
-            //X=LU.Solve(matrixA, f);
-
-            //GaussMethod solver = new GaussMethod();
-            //X=solver.SolveMatrix(matrixA, f);
+            Console.WriteLine("Time method\t" + (time));
 
 
-            Console.WriteLine(Error(X, resX));
         }
     }
 }

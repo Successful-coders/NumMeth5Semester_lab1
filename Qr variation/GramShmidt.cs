@@ -8,18 +8,14 @@ namespace Com_Methods
 {
     class GramShmidt
     {
-        public UMatrix R { set; get; }
-        public LMatrix Q { set; get; }
-
+     
         //классический метод QR-разложения
-        public void ClassicDecomposition(Matrix m)
+        public static void ClassicDecomposition(Matrix m, Matrix R, Matrix Q)
         {
-            R = new UMatrix(m.N, m.N);
-            Q = new LMatrix(m.M, m.M);
-            var q = new Vector(m.M);
-
+         
             for (var j = 0; j < m.N; j++)
             {
+                var q = new Vector(m.M);
                 //формирование верхнетреугольной матрицы R
                 for (var i = 0; i < j; i++)
                     for (var k = 0; k < m.M; k++)
@@ -36,8 +32,9 @@ namespace Com_Methods
                 R.Elem[j][j] = q.Norma();
 
                 if (R.Elem[j][j] < CONST.EPS)
-                    return;
-
+                {
+                    throw new Exception("Division by zero, R[i][i] = 0");
+                }
                 //формирование унитарной матрицы Q
                 for (var i = 0; i < m.M; i++)
                     Q.Elem[i][j] = q.Elem[i] / R.Elem[j][j];
@@ -45,17 +42,16 @@ namespace Com_Methods
         }
 
         //модифицированный метод QR-разложения
-        public void ModifyDecomposition(Matrix m)
+        public static void ModifyDecomposition(Matrix m, Matrix R, Matrix Q)
         {
-            R = new UMatrix(m.N, m.N);
-            Q = new LMatrix(m.M, m.M);
+           
             var q = new Vector(m.M);
 
             for (var j = 0; j < m.M; j++)
             {
                 //копирование j-ой строки матрицы A в вектор q
                 q.Copy_Column(m, j);
-
+               
                 //формирование верхнетреугольной матрицы R
                 for (var i = 0; i < j; i++)
                 {
@@ -78,6 +74,31 @@ namespace Com_Methods
                 for (var i = 0; i < m.M; i++)
                     Q.Elem[i][j] = q.Elem[i] / R.Elem[j][j];
             }
+
+        }
+
+        public static Vector SolverGrammShmidth(Matrix A, Vector F, int mode)
+        {
+            var X = new Vector(F.N);
+            var Y = new Vector(F.N);
+            var R = new Matrix(A.N, A.M);
+            var Q = new Matrix(A.N, A.M);
+
+            switch (mode)
+            {
+                case 1:
+                    ClassicDecomposition(A,R,Q);
+                    break;
+                case 2:
+                    ModifyDecomposition(A,R,Q);
+                    break;
+            }
+
+            Y = Q.MultTransMatrixVector(F);
+
+            Substitution_Method.Back_Row_Substitution(R, Y, X);
+
+            return X;
         }
     }
 }

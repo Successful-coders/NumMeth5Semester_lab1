@@ -44,17 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Lab1\Class1.cs" />
+    <Compile Include="Class2.cs" />
     <Compile Include="DirectSolver\Substitution_Method.cs" />
     <Compile Include="Decomposition\GaussMethod.cs" />
-    <Compile Include="CONST.cs" />
+    <Compile Include="Lab1\CONST.cs" />
     <Compile Include="Qr variation\GivensRotation.cs" />
     <Compile Include="Qr variation\Hausholder.cs" />
     <Compile Include="Decomposition\LUDecompositions.cs" />
     <Compile Include="Matrix\LMatrix.cs" />
     <Compile Include="Matrix\Matrix.cs" />
     <Compile Include="Matrix\UMatrix.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Lab1\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qr variation\GramShmidt.cs" />
     <Compile Include="Vector\Vector.cs" />

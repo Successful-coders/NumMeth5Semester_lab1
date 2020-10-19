@@ -1,0 +1,6 @@
+C:\Users\i.kondratev.2018\Desktop\num methods\код Маркова\Com_Methods\Com_Methods\obj\Debug\Com_Methods.csprojAssemblyReference.cache
+C:\Users\i.kondratev.2018\Desktop\num methods\код Маркова\Com_Methods\Com_Methods\Com_Methods.exe.config
+C:\Users\i.kondratev.2018\Desktop\num methods\код Маркова\Com_Methods\Com_Methods\obj\Debug\Com_Methods.exe
+C:\Users\i.kondratev.2018\Desktop\num methods\код Маркова\Com_Methods\Com_Methods\obj\Debug\Com_Methods.pdb
+C:\Users\i.kondratev.2018\Desktop\num methods\код Маркова\Com_Methods\Com_Methods\Com_Methods.exe
+C:\Users\i.kondratev.2018\Desktop\num methods\код Маркова\Com_Methods\Com_Methods\Com_Methods.pdb

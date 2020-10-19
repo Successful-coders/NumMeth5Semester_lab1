@@ -104,11 +104,28 @@ namespace Com_Methods
                     var F = A * X_true;
 
                     Console.WriteLine("Cond(A) = " + A.Cond_InfinityNorm());
+
+                   
+                    Gauss_Method.Direct_Way(A, F);
+                    var RES = new Vector(F.N);
+
+                    //обратное ислючение в методе Гаусса через верхнюю треугольную матрицу
+                    Substitution_Method.Back_Row_Substitution(A, F, RES);
+                    var d = new Vector(10);
+                    for (int i = 0; i < F.N; i++)
+                    {
+                        d.Elem[i] = RES.Elem[i] - X_true.Elem[i];
+                    }
+                    Console.WriteLine(d.Norma());
                 });
 
                 //время решения
                 Console.WriteLine(Tools.Measurement_Time(T2));
 
+                double a = 0.000000000000001;
+                double b = 0.000000000000002;
+
+                Console.WriteLine(a == b);
             }
             catch (Exception E)
             {

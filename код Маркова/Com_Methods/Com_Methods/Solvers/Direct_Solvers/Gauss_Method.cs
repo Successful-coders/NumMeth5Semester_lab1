@@ -16,7 +16,7 @@ namespace Com_Methods
         }
 
         //прямой ход: построение верхней треугольной матрицы и вектора правой части (изменятся)
-        public void Direct_Way (Matrix A, Vector F)
+        public static void Direct_Way (Matrix A, Vector F)
         { 
             //вспомогательная переменная
             double help;
